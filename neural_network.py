@@ -1,5 +1,5 @@
 from model import activation
-
+import numpy as np
 class NN:
     def __init__(self):
         self.sequence = []
@@ -28,7 +28,7 @@ class NN:
                 new_activation_list.append(prediction)
             
             # append the latest activation
-            self.activation_list.append(new_activation_list)
+            self.activation_list.append(np.array(new_activation_list).T)
 
     # get the output of the nn. 
     def final_output_neuron(self):

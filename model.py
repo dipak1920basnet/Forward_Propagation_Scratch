@@ -16,9 +16,9 @@ def sigmoid(w,x,b):
 
 def activation(x):
     m = x.shape[1]
-    w = np.zeros(m)
+    w = np.ones(m)
     # initialize the base later. 
-    b = np.random()
+    b = np.random.randint(100)
 
     return sigmoid(w,x,b)
 
