@@ -15,11 +15,16 @@ neural_network.fit(X)
 # neural_network.final_output_neuron()
 
 activation_list = neural_network.activation_list
+# print(activation_list)
 for i in range(len(activation_list)):
-    layer_ = activation_list[i].T
+    layer_ = activation_list[i]
+    
     if i == 0:
-        print("data layer: ", layer_.T)
+        print("data layer: ", layer_)
         continue
-    for j in range(len(layer_)):
-    # print(f"layer{i}:: {activation_list[i].T}")
-        print(f"layer{i}, perceptron{j} activation: {layer_[j]}")
+
+    print(f"activation{i}:: ",layer_)
+
+    # for j in range(len(layer_)):
+    # # print(f"layer{i}:: {activation_list[i].T}")
+    #     print(f"layer{i}, perceptron{j} activation: {layer_[j]}")
