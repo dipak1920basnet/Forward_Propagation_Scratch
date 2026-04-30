@@ -12,8 +12,8 @@ def generate_w_b(row, column):
     generate weight and bias that matches row and column based on data and dense of layers.
     no need to transpose the weight and bias as this already  matches row and column for data. 
     """
-    weight = np.random.rand(row, column)
-    bias = np.random.rand(1, column)
+    weight = np.random.randn(row, column)
+    bias = np.random.randn(1, column)
     return weight, bias
 
 
@@ -83,11 +83,11 @@ class NN:
             # get the latest activation
             data = self.predict_store[-1]
 
-            # access the weight and bias for particular layer. 
-            prediction = np.matmul(data, self.weight_list[i]) + self.bias_list[i]
+            # access the weight and bias for particular layer with i and perform predictions. 
+            prediction = self.Dense(data, self.weight_list[i], self.bias_list[i])
 
             # store the acctivation 
-            self.predict_store.append(sigmoid(prediction))
+            self.predict_store.append(prediction)
         
         # return the predictions
         return self.predict_store[-1]
@@ -104,6 +104,7 @@ model.Sequence([3, 2, 1])
 model.fit(data)
 # predict the data
 prediction = model.predict(data)
-print(prediction)
+
+print("predictions:: ",prediction)
 print("weight list ", model.weight_list)
 print("bias list ", model.bias_list)
